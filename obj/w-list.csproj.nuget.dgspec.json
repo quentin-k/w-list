@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/vm/w-list/w-list/w-list.csproj": {}
+    "/home/vm/w-list/w-list.csproj": {}
   },
   "projects": {
-    "/home/vm/w-list/w-list/w-list.csproj": {
+    "/home/vm/w-list/w-list.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/vm/w-list/w-list/w-list.csproj",
+        "projectUniqueName": "/home/vm/w-list/w-list.csproj",
         "projectName": "w-list",
-        "projectPath": "/home/vm/w-list/w-list/w-list.csproj",
+        "projectPath": "/home/vm/w-list/w-list.csproj",
         "packagesPath": "/home/vm/.nuget/packages/",
-        "outputPath": "/home/vm/w-list/w-list/obj/",
+        "outputPath": "/home/vm/w-list/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/vm/.nuget/NuGet/NuGet.Config"
