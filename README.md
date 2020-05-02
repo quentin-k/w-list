@@ -6,4 +6,4 @@ A social program for seeing how communication develops in a severly restrained e
 MariaDB|Storing information
 Docker|Deployment of the application
 # Docker
-on linux run the command ```docker build $HOME/w-list``` to deploy w-list
+on Linux run the command ```docker build $HOME/w-list``` to deploy w-list
