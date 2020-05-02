@@ -3,5 +3,3 @@ A social program for seeing how communication develops in a severly restrained e
 # technolgies
 Mariadb for storing information.
 docker for deployment
-# Docker
-on linux run the command ```docker build $HOME/w-list``` to deploy w-list
