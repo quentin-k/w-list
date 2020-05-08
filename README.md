@@ -3,6 +3,5 @@ A social program for seeing how communication develops in a severly restrained e
 # technolgies
 |Product|Reason|
 |---|---|
-MariaDB|Storing information
-Docker|Deployment of the application
+SQLite|Storing information
 
