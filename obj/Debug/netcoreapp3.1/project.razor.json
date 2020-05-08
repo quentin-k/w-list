@@ -20526,8 +20526,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/quentin/w-list/Views/Forums/Edit.cshtml",
+      "TargetPath": "Views\\Forums\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/quentin/w-list/Views/Forums/Create.cshtml",
+      "TargetPath": "Views\\Forums\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/quentin/w-list/Views/WList/W.cshtml",
       "TargetPath": "Views\\WList\\W.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/quentin/w-list/Views/Forums/Details.cshtml",
+      "TargetPath": "Views\\Forums\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/quentin/w-list/Views/Forums/Delete.cshtml",
+      "TargetPath": "Views\\Forums\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20553,6 +20573,11 @@
     {
       "FilePath": "/home/quentin/w-list/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/quentin/w-list/Views/Forums/Index.cshtml",
+      "TargetPath": "Views\\Forums\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

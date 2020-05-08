@@ -1,0 +1,93 @@
+@model w_list.Models.ForumModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ForumModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Locked" /> @Html.DisplayNameFor(model => model.Locked)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsPublic" /> @Html.DisplayNameFor(model => model.IsPublic)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedWord1" class="control-label"></label>
+                <input asp-for="AllowedWord1" class="form-control" />
+                <span asp-validation-for="AllowedWord1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedWord2" class="control-label"></label>
+                <input asp-for="AllowedWord2" class="form-control" />
+                <span asp-validation-for="AllowedWord2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedWord3" class="control-label"></label>
+                <input asp-for="AllowedWord3" class="form-control" />
+                <span asp-validation-for="AllowedWord3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedWord4" class="control-label"></label>
+                <input asp-for="AllowedWord4" class="form-control" />
+                <span asp-validation-for="AllowedWord4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedWord5" class="control-label"></label>
+                <input asp-for="AllowedWord5" class="form-control" />
+                <span asp-validation-for="AllowedWord5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedWord6" class="control-label"></label>
+                <input asp-for="AllowedWord6" class="form-control" />
+                <span asp-validation-for="AllowedWord6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedWord7" class="control-label"></label>
+                <input asp-for="AllowedWord7" class="form-control" />
+                <span asp-validation-for="AllowedWord7" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedWord8" class="control-label"></label>
+                <input asp-for="AllowedWord8" class="form-control" />
+                <span asp-validation-for="AllowedWord8" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedWord9" class="control-label"></label>
+                <input asp-for="AllowedWord9" class="form-control" />
+                <span asp-validation-for="AllowedWord9" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedWord10" class="control-label"></label>
+                <input asp-for="AllowedWord10" class="form-control" />
+                <span asp-validation-for="AllowedWord10" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
