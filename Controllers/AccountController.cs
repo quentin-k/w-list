@@ -11,7 +11,8 @@ namespace w_list.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<IdentityUser> userManager;
+        //these privates need to be fixed
+        private readonly Microsoft.AspNetCore.Identity.UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
         public AccountController(UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager)
