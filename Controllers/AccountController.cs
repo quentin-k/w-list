@@ -17,6 +17,8 @@ namespace w_list.Controllers
         public AccountController(UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager)
         {
+            this.userManager = userManager;
+            this.signInManager = signInManager;
         }
         [HttpGet]
         public IActionResult Register()
