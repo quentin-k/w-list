@@ -18,6 +18,14 @@
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label asp-for="PesrsistLogin">
+                        <input asp-for="PesrsistLogin" />
+                        @Html.DisplayNameFor(m => m.PesrsistLogin)
+                    </label>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
         

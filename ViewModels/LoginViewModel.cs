@@ -15,5 +15,7 @@ namespace w_list.ViewModels
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        [Display(Name = "Stay logged in?")]
+        public bool PesrsistLogin;
     }
 }
