@@ -29,8 +29,6 @@ namespace w_list
             services.AddControllersWithViews();
             services.AddDbContext<WListContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("WListContext")));
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<WListContext>();
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = true;
