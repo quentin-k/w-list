@@ -10,7 +10,7 @@ namespace w_list.ViewModels
     {
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string Email {  get; set; }
 
         [Required]
         [DataType(DataType.Password)]

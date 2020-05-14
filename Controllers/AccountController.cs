@@ -4,8 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.ComponentModel.DataAnnotations;
 using w_list.ViewModels;
+using MailKit.Net.Smtp;
+using MimeKit;
+using System.Net;
+using System.Net.Mime;
+using System.Threading;
+using System.ComponentModel;
 
 namespace w_list.Controllers
 {
@@ -14,11 +21,14 @@ namespace w_list.Controllers
         //these privates need to be fixed
         private readonly Microsoft.AspNetCore.Identity.UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
+        private readonly IConfiguration configuration;
         public AccountController(UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<IdentityUser> signInManager,
+            IConfiguration configuration)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.configuration = configuration;
         }
         [HttpGet]
         public IActionResult Register()
@@ -31,12 +41,13 @@ namespace w_list.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = model.Email, Email = model.Email};
+                var user = new IdentityUser { UserName = model.Username, Email = model.Email};
                 var result = await userManager.CreateAsync(user, model.Password);
 
                 if(result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
+                    
                     return RedirectToAction("index", "home");
                 }
 
@@ -68,6 +79,29 @@ namespace w_list.Controllers
             }
             return View(model);
         }
+
+        /*public async Task<IActionResult> ConfirmEmail()
+        {
+            var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
+            var confimationLink = Url.Action("ConfirmEmail", "Account",
+                new { userID = user.Id, token = token}, Request.Scheme);        
+            SmtpClient client = new SmtpClient();
+            client.Connect("smtp.gmail.com", 465, true);
+            client.Authenticate(configuration["EmailUsernameSecret"], configuration["EmailPasswordSecret"]);
+            MimeMessage message = new MimeMessage();
+            MailboxAddress from = new MailboxAddress("w-list app", "wlistwebapp@gmail.com");
+            message.From.Add(from);
+            MailboxAddress to = new MailboxAddress(user.UserName, user.Email);
+            message.To.Add(to);
+            message.Subject = "Confirm Email";
+            BodyBuilder bodyBuilder = new BodyBuilder();
+            bodyBuilder.TextBody = $"To confirm your email click on the following link: {confimationLink}";
+            message.Body = bodyBuilder.ToMessageBody();
+
+            client.Send(message);
+            client.Disconnect(true);
+            client.Dispose();
+        }*/
 
         public async Task<IActionResult> Logout()
         {

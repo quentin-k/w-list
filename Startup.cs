@@ -31,6 +31,21 @@ namespace w_list
                 options.UseSqlite(Configuration.GetConnectionString("WListContext")));
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<WListContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequiredUniqueChars = 8;
+                options.Password.RequiredLength = 14;
+                options.SignIn.RequireConfirmedEmail = true;
+                options.User.AllowedUserNameCharacters = 
+                    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+                options.User.RequireUniqueEmail = true;
+            })
+                .AddEntityFrameworkStores<WListContext>()
+                .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

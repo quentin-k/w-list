@@ -168,3 +168,6 @@
 /home/quentin/w-list/obj/Debug/netcoreapp3.1/w-list.pdb
 /home/quentin/w-list/obj/Debug/netcoreapp3.1/Razor/Views/Account/Register.cshtml.g.cs
 /home/quentin/w-list/obj/Debug/netcoreapp3.1/Razor/Views/Account/Login.cshtml.g.cs
+/home/quentin/w-list/bin/Debug/netcoreapp3.1/MailKit.dll
+/home/quentin/w-list/bin/Debug/netcoreapp3.1/MimeKit.dll
+/home/quentin/w-list/bin/Debug/netcoreapp3.1/BouncyCastle.Crypto.dll
