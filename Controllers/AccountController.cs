@@ -124,7 +124,7 @@ namespace w_list.Controllers
         }*/
 
         [AllowAnonymous]
-        public async Task<ActionResult> ConfirmEmail(IdentityUser userID, string token)
+        public async Task<ActionResult> ConfirmEmail(string userID, string token)
         {
             if (userID == null || token == null)
             {
@@ -133,7 +133,8 @@ namespace w_list.Controllers
             IdentityResult result;
             try
             {
-                result = await userManager.ConfirmEmailAsync(userID, token);
+                var user = await userManager.FindByIdAsync(userID);
+                result = await userManager.ConfirmEmailAsync(user, token);
             }
             catch (InvalidOperationException ioe)
             {
