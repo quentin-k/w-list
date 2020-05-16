@@ -20531,6 +20531,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/quentin/w-list/Views/Account/Error.cshtml",
+      "TargetPath": "Views\\Account\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/quentin/w-list/Views/Account/Register.cshtml",
       "TargetPath": "Views\\Account\\Register.cshtml",
       "FileKind": "mvc"
@@ -20563,6 +20568,11 @@
     {
       "FilePath": "/home/quentin/w-list/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/quentin/w-list/Views/Account/ConfirmEmail.cshtml",
+      "TargetPath": "Views\\Account\\ConfirmEmail.cshtml",
       "FileKind": "mvc"
     },
     {

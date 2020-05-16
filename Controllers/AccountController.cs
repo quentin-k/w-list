@@ -8,11 +8,13 @@ using Microsoft.Extensions.Configuration;
 using System.ComponentModel.DataAnnotations;
 using w_list.ViewModels;
 using MailKit.Net.Smtp;
+using System.Net.Mail;
 using MimeKit;
 using System.Net;
 using System.Net.Mime;
 using System.Threading;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace w_list.Controllers
 {
@@ -102,6 +104,51 @@ namespace w_list.Controllers
             client.Disconnect(true);
             client.Dispose();
         }*/
+
+        [AllowAnonymous]
+        public async Task<ActionResult> ConfirmEmail(IdentityUser userId, string code)
+        {
+            if (userId == null || code == null)
+            {
+                return View("Error");
+            }
+            IdentityResult result;
+            try
+            {
+                result = await userManager.ConfirmEmailAsync(userId, code);
+            }
+            catch (InvalidOperationException ioe)
+            {
+                // ConfirmEmailAsync throws when the userId is not found.
+                ViewBag.errorMessage = ioe.Message;
+                return View("Error");
+            }
+
+            if (result.Succeeded)
+            {
+                return View();
+            }
+
+            // If we got this far, something failed.
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+            ViewBag.errorMessage = "ConfirmEmail failed";
+            return View("Error");
+        }
+        public string SendEmailConfirmation() 
+        {
+            return "Temp";
+        }
+        public string GeneratePasswordRecoveryToken()
+        {
+            return  "82215-AKZDW-qkeep-8Yi";
+        }
+        public string SendEmailToken()
+        {
+            return "12345";
+        }
 
         public async Task<IActionResult> Logout()
         {
