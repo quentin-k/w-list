@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using System.ComponentModel.DataAnnotations;
 using w_list.ViewModels;
 using MailKit.Net.Smtp;
-using System.Net.Mail;
 using MimeKit;
 using System.Net;
 using System.Net.Mime;
@@ -48,6 +47,25 @@ namespace w_list.Controllers
 
                 if(result.Succeeded)
                 {
+                    var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var confimationLink = Url.Action("ConfirmEmail", "Account",
+                    new { userID = user.Id, token = token}, Request.Scheme);        
+                    SmtpClient client = new SmtpClient();
+                    client.Connect("smtp.gmail.com", 465, true);
+                    client.Authenticate(configuration["EmailUsernameSecret"], configuration["EmailPasswordSecret"]);
+                    MimeMessage message = new MimeMessage();
+                    MailboxAddress from = new MailboxAddress("w-list app", "wlistwebapp@gmail.com");
+                    message.From.Add(from);
+                    MailboxAddress to = new MailboxAddress(user.UserName, user.Email);
+                    message.To.Add(to);
+                    message.Subject = "Confirm Email";
+                    BodyBuilder bodyBuilder = new BodyBuilder();
+                    bodyBuilder.TextBody = $"To confirm your email click on the following link: {confimationLink}";
+                    message.Body = bodyBuilder.ToMessageBody();
+
+                    client.Send(message);
+                    client.Disconnect(true);
+                    client.Dispose();
                     await signInManager.SignInAsync(user, isPersistent: false);
                     
                     return RedirectToAction("index", "home");
@@ -106,16 +124,16 @@ namespace w_list.Controllers
         }*/
 
         [AllowAnonymous]
-        public async Task<ActionResult> ConfirmEmail(IdentityUser userId, string code)
+        public async Task<ActionResult> ConfirmEmail(IdentityUser userID, string token)
         {
-            if (userId == null || code == null)
+            if (userID == null || token == null)
             {
                 return View("Error");
             }
             IdentityResult result;
             try
             {
-                result = await userManager.ConfirmEmailAsync(userId, code);
+                result = await userManager.ConfirmEmailAsync(userID, token);
             }
             catch (InvalidOperationException ioe)
             {

@@ -172,3 +172,4 @@
 /home/quentin/w-list/bin/Debug/netcoreapp3.1/MimeKit.dll
 /home/quentin/w-list/bin/Debug/netcoreapp3.1/BouncyCastle.Crypto.dll
 /home/quentin/w-list/obj/Debug/netcoreapp3.1/Razor/Views/Account/Error.cshtml.g.cs
+/home/quentin/w-list/obj/Debug/netcoreapp3.1/Razor/Views/Account/ConfirmEmail.cshtml.g.cs
