@@ -90,7 +90,7 @@ namespace w_list.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.PesrsistLogin, false);
+                var result = await signInManager.PasswordSignInAsync(model.Username, model.Password, model.PesrsistLogin, false);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("index", "home");
