@@ -100,29 +100,6 @@ namespace w_list.Controllers
             return View(model);
         }
 
-        /*public async Task<IActionResult> ConfirmEmail()
-        {
-            var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
-            var confimationLink = Url.Action("ConfirmEmail", "Account",
-                new { userID = user.Id, token = token}, Request.Scheme);        
-            SmtpClient client = new SmtpClient();
-            client.Connect("smtp.gmail.com", 465, true);
-            client.Authenticate(configuration["EmailUsernameSecret"], configuration["EmailPasswordSecret"]);
-            MimeMessage message = new MimeMessage();
-            MailboxAddress from = new MailboxAddress("w-list app", "wlistwebapp@gmail.com");
-            message.From.Add(from);
-            MailboxAddress to = new MailboxAddress(user.UserName, user.Email);
-            message.To.Add(to);
-            message.Subject = "Confirm Email";
-            BodyBuilder bodyBuilder = new BodyBuilder();
-            bodyBuilder.TextBody = $"To confirm your email click on the following link: {confimationLink}";
-            message.Body = bodyBuilder.ToMessageBody();
-
-            client.Send(message);
-            client.Disconnect(true);
-            client.Dispose();
-        }*/
-
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userID, string token)
         {
