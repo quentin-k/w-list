@@ -44,6 +44,8 @@ namespace w_list
             })
                 .AddEntityFrameworkStores<WListContext>()
                 .AddDefaultTokenProviders();
+            services.Configure<DataProtectionTokenProviderOptions>(o =>
+                o.TokenLifespan = TimeSpan.FromHours(1));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
