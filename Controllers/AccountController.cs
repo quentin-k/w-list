@@ -154,7 +154,7 @@ namespace w_list.Controllers
 
                     SmtpClient client = new SmtpClient();
                     client.Connect("smtp.gmail.com", 465, true);
-                    client.Authenticate(configuration["EmailUsernameSecret"], configuration["EmailPasswordsecret"]);
+                    client.Authenticate(configuration["EmailUsernameSecret"], configuration["EmailPasswordSecret"]);
 
                     MimeMessage message = new MimeMessage();
                     MailboxAddress from = new MailboxAddress("w-list app", "wlistwebapp@gmail.com");
@@ -172,7 +172,7 @@ namespace w_list.Controllers
 
                     return View("ForgotPasswordConfirmation");
                 }
-                return View("ForgotPasswordConfirmation");
+                //return View("ForgotPasswordConfirmation");
             }
             return View(model);
         }
