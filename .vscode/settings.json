@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "${workspaceFolder}/WList.db",
+            "dialect": "SQLite",
+            "name": "WList"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
