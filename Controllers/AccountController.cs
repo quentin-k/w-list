@@ -145,7 +145,7 @@ namespace w_list.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await userManager.FindByNameAsync(model.Email);
+                var user = await userManager.FindByEmailAsync(model.Email);
                 if (user != null && await userManager.IsEmailConfirmedAsync(user))
                 {
                     var token = await userManager.GeneratePasswordResetTokenAsync(user);
@@ -172,7 +172,7 @@ namespace w_list.Controllers
 
                     return View("ForgotPasswordConfirmation");
                 }
-                //return View("ForgotPasswordConfirmation");
+                return View("ForgotPasswordConfirmation");
             }
             return View(model);
         }
@@ -182,6 +182,7 @@ namespace w_list.Controllers
             if (token == null || email == null)
             {
                 ModelState.AddModelError("", "Invalid password reset token");
+                return View("Invalid");
             }
             return View();
         }

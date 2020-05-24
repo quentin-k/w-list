@@ -20,6 +20,7 @@ namespace w_list.ViewModels
 
         [Required]
         [Display(Name = "Confirm Password")]
+        [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Passwords must match")]
         public string ConfirmPassword { get; set; }
 

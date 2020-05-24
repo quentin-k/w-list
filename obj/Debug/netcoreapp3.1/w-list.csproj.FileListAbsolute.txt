@@ -175,3 +175,6 @@
 /home/quentin/w-list/obj/Debug/netcoreapp3.1/Razor/Views/Account/ConfirmEmail.cshtml.g.cs
 /home/quentin/w-list/obj/Debug/netcoreapp3.1/Razor/Views/Account/ForgotPassword.cshtml.g.cs
 /home/quentin/w-list/obj/Debug/netcoreapp3.1/Razor/Views/Account/ForgotPasswordConfirmation.cshtml.g.cs
+/home/quentin/w-list/obj/Debug/netcoreapp3.1/Razor/Views/Account/ResetPassword.cshtml.g.cs
+/home/quentin/w-list/obj/Debug/netcoreapp3.1/Razor/Views/Account/Invalid.cshtml.g.cs
+/home/quentin/w-list/obj/Debug/netcoreapp3.1/Razor/Views/Account/ResetPasswordConfirmation.cshtml.g.cs
